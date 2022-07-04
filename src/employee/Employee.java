@@ -1,10 +1,16 @@
 package employee;
 
+import java.util.Scanner;
+
 public class Employee implements ICountNettoSalary {
 
     private String name;
     private String surname;
-    private int salaryBrutto;
+    private Integer salaryBrutto;
+
+    public Employee() {
+
+    }
 
 
     public  enum EmploymentType {
@@ -21,7 +27,7 @@ public class Employee implements ICountNettoSalary {
 
 
 
-    public Employee(String name, String surname, int salaryBrutto, EmploymentType eType) {
+    public Employee(String name, String surname, Integer salaryBrutto, EmploymentType eType) {
 
         this.name = name;
         this.surname = surname;
@@ -29,6 +35,27 @@ public class Employee implements ICountNettoSalary {
         this.eType = eType;
 
     }
+
+    public void createNewEmployee(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj imie: ");
+        setName(scanner.next());
+
+        System.out.print("Podaj nazwisko: ");
+        setSurname(scanner.next());
+
+        System.out.print("Podaj zarobki brutto: ");
+        setSalaryBrutto(Integer.valueOf(scanner.next()));
+
+
+        System.out.print("Podaj rodzaj umowy: ");
+        seteType(EmploymentType.valueOf(scanner.next()));
+
+
+
+    }
+
 
     @Override
     public double countNettoSalary() {
@@ -48,7 +75,7 @@ public class Employee implements ICountNettoSalary {
         return salaryBrutto;
     }
 
-    public void setSalaryBrutto(int salaryBrutto) {
+    public void setSalaryBrutto(Integer salaryBrutto) {
         this.salaryBrutto = salaryBrutto;
     }
 
