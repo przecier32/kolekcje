@@ -1,10 +1,11 @@
 package employee;
 
-public class Employee {
+public class Employee implements ICountNettoSalary {
 
     private String name;
     private String surname;
     private int salaryBrutto;
+
 
     public  enum EmploymentType {
         B2B(0.3), UOP(0.5), UOD(0.1);
@@ -27,6 +28,14 @@ public class Employee {
         this.salaryBrutto = salaryBrutto;
         this.eType = eType;
 
+    }
+
+    @Override
+    public double countNettoSalary() {
+        double nettoSalary;
+        nettoSalary = salaryBrutto - (salaryBrutto * eType.tax);
+
+        return nettoSalary;
     }
 
     public double getSalaryWithOtherContract(int bruttoSalary, EmploymentType eType){
