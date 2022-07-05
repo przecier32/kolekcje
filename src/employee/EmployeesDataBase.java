@@ -61,6 +61,7 @@ public class EmployeesDataBase {
         System.out.println("Ilosc pracownikow: ");
         return theEmployee.stream().collect(Collectors.counting());
     }
+
 //Optional, findAny
     public void isThereSomething() {
 
@@ -138,6 +139,14 @@ public class EmployeesDataBase {
     }
 
 
+    void filterByName() {
+
+        List<String> name = theEmployee.stream()
+                .filter(n -> n.getName() == "Piotr")
+                .map(n -> n.getSurname() + " " + n.getName())
+                .collect(Collectors.toList());
+        System.out.println(name);
+    }
 
 
 

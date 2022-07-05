@@ -44,7 +44,9 @@ public class Employee {
         this.gender = gender;
         this.eType = eType;
 
+
     }
+
 
 
     public double getSalaryWithOtherContract(int bruttoSalary, EmploymentType eType){

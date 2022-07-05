@@ -34,8 +34,10 @@ public class Main {
 
         employeesDataBase.addEmployee(e7);
 
-        employeesDataBase.printAll();
-       // employeesDataBase.salaryFilterOver5k();
+//        employeesDataBase.printAll();
+
+//        employeesDataBase.salaryFilterOver5k();
+
 //        System.out.println(employeesDataBase.isAnyoneOver1k());
 //
 //        System.out.println(employeesDataBase.findSpecifyName());
@@ -45,13 +47,17 @@ public class Main {
 //        System.out.println(employeesDataBase.howManyWomenEmployees());
 //
 //        System.out.println(employeesDataBase.howManyEmployees());
+//
+        employeesDataBase.findAnyWomen();
 
-        //employeesDataBase.findAnyWomen();
+//        employeesDataBase.bonusSalary(500);
 
-        employeesDataBase.bonusSalary(500);
-        employeesDataBase.lowestSalary();
-        employeesDataBase.sortBySalary();
+//        employeesDataBase.lowestSalary();
 
+//        employeesDataBase.sortBySalary();
+
+
+employeesDataBase.filterByName();
 
     }
 }
