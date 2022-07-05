@@ -1,16 +1,23 @@
 package employee;
 
-import java.util.Scanner;
-
-public class Employee implements ICountNettoSalary {
+public class Employee {
 
     private String name;
     private String surname;
     private Integer salaryBrutto;
 
-    public Employee() {
+    private EmploymentType eType;
 
-    }
+//    private ICountNettoSalary strategy;
+
+//    public void setStrategy(ICountNettoSalary strategy) {
+//        this.strategy = strategy;
+//    }
+//
+//    public double countNettoSalary(double salaryBrutto, double tax ) {
+//        return strategy.countNettoSalary(salaryBrutto,tax);
+//    }
+
 
 
     public  enum EmploymentType {
@@ -22,9 +29,6 @@ public class Employee implements ICountNettoSalary {
         }
 
     }
-    private EmploymentType eType;
-
-
 
 
     public Employee(String name, String surname, Integer salaryBrutto, EmploymentType eType) {
@@ -36,34 +40,6 @@ public class Employee implements ICountNettoSalary {
 
     }
 
-    public void createNewEmployee(){
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Podaj imie: ");
-        setName(scanner.next());
-
-        System.out.print("Podaj nazwisko: ");
-        setSurname(scanner.next());
-
-        System.out.print("Podaj zarobki brutto: ");
-        setSalaryBrutto(Integer.valueOf(scanner.next()));
-
-
-        System.out.print("Podaj rodzaj umowy: ");
-        seteType(EmploymentType.valueOf(scanner.next()));
-
-
-
-    }
-
-
-    @Override
-    public double countNettoSalary() {
-        double nettoSalary;
-        nettoSalary = salaryBrutto - (salaryBrutto * eType.tax);
-
-        return nettoSalary;
-    }
 
     public double getSalaryWithOtherContract(int bruttoSalary, EmploymentType eType){
         System.out.println("Na umowie " + eType + " zarobisz: ");

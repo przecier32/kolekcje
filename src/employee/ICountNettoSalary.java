@@ -2,6 +2,7 @@ package employee;
 
 public interface ICountNettoSalary {
 
-    double countNettoSalary();
+
+    double countNettoSalary(double bruttoSalary, double tax);
 
 }
