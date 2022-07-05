@@ -1,6 +1,7 @@
 package employee;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -75,7 +76,9 @@ public class EmployeesDataBase {
 
     public void findAnyWomen() {
         System.out.println("Szukamy pierwszej lepszej kobiety: ");
-        Optional<Employee> anyWomen = theEmployee.stream().filter(g -> g.getGender() == 'k').findFirst();
+        Optional<Employee> anyWomen = theEmployee.stream()
+                .filter(g -> g.getGender() == 'k')
+                .findFirst();
 
         if (anyWomen.isPresent()) {
             System.out.println(anyWomen.get());
@@ -89,19 +92,52 @@ public class EmployeesDataBase {
     public void bonusSalary(Integer a) {
 
         List<Integer> bonusList = theEmployee.stream()
-                .filter(s -> s.getSalaryBrutto() < 3000 )
-                .peek(s -> System.out.println("Zarobki przed premia: " + " " +  s.getSalaryBrutto() + " " + s.getName() + " " + s.getSurname()))
+                .filter(s -> s.getSalaryBrutto() < 3000)
+                .peek(s -> System.out.println("Zarobki przed premia: " + " " + s.getSalaryBrutto() + " " + s.getName() + " " + s.getSurname()))
                 .map(e -> e.getSalaryBrutto() + a)
                 .collect(Collectors.toList());
 
-        System.out.println("Zarobki po premii: "  + bonusList);
+        System.out.println("Zarobki po premii: " + bonusList);
+
+    }
+        public void lowestSalary() {
+
+        Optional<Employee> low = theEmployee.stream()
+                .min(Comparator.comparing(s -> s.getSalaryBrutto()));
+
+        if (low.isPresent()) {
+            System.out.println("Najnizsze zarobki: " + low.get());
+        }
+        else {
+            System.out.println("Brak danych.");
+        }
 
     }
 
+    public void bigestSalary() {
+
+        Optional<Employee> max = theEmployee.stream()
+                .max(Comparator.comparing(s -> s.getSalaryBrutto()));
+
+        if (max.isPresent()) {
+            System.out.println("Najwyzsze zarobki: " + max.get());
+        }
+        else {
+            System.out.println("Brak danych.");
+        }
+
+    }
+
+    public void sortBySalary() {
+
+        List<Employee> sort = theEmployee.stream()
+                .sorted(Comparator.comparing(Employee::getSalaryBrutto))
+                .collect(Collectors.toList());
+
+        sort.forEach(System.out::println);
+    }
 
 
-
-//metoda premiujaca
 
 
 

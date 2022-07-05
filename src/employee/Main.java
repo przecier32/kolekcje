@@ -47,6 +47,11 @@ public class Main {
 //        System.out.println(employeesDataBase.howManyEmployees());
 
         //employeesDataBase.findAnyWomen();
+
         employeesDataBase.bonusSalary(500);
+        employeesDataBase.lowestSalary();
+        employeesDataBase.sortBySalary();
+
+
     }
 }
