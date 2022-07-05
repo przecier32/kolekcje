@@ -5,10 +5,15 @@ public class Employee {
     private String name;
     private String surname;
     private Integer salaryBrutto;
-
+    private char gender;
     private EmploymentType eType;
 
+
+
+
 //    private ICountNettoSalary strategy;
+
+
 
 //    public void setStrategy(ICountNettoSalary strategy) {
 //        this.strategy = strategy;
@@ -31,11 +36,12 @@ public class Employee {
     }
 
 
-    public Employee(String name, String surname, Integer salaryBrutto, EmploymentType eType) {
+    public Employee(String name, String surname, Integer salaryBrutto, char gender, EmploymentType eType) {
 
         this.name = name;
         this.surname = surname;
         this.salaryBrutto = salaryBrutto;
+        this.gender = gender;
         this.eType = eType;
 
     }
@@ -79,7 +85,9 @@ public class Employee {
         this.eType = eType;
     }
 
-    public String printEmployee(){
+    public char getGender() { return gender; }
+
+    public String toString(){
         return "Imie i nazwisko: " + name + " " + surname + " Zarobki brutto: " + salaryBrutto + " Umowa: " + eType;
     }
 
